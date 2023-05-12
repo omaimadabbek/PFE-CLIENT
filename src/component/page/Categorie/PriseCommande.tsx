@@ -33,8 +33,8 @@ const Categorie = () => {
   const [adresse, setAdresse] = useState("");
   const [total, setTotal] = useState(0);
   const [num_telephone, setNum] = useState(0);
-  const [id_client] = useState(0);
-  const [etat_commande] = useState("");
+
+
   const [date_cmd] = useState("");
 
   function getCategorie() {
@@ -94,13 +94,13 @@ const Categorie = () => {
           ></img>
         </div>
         <Connexion
-         setDetailCmd={setDetailCmd}
-         setTotal={setTotal}
-        setIsValidePanier={setIsValidePanier}
-        isDeConnected={isDeConnected}
-        setIsDeConnected={setIsDeConnected}
-        isConnected={isConnected}
-         setIsConnected={setIsConnected}
+          setDetailCmd={setDetailCmd}
+          setTotal={setTotal}
+          setIsValidePanier={setIsValidePanier}
+          isDeConnected={isDeConnected}
+          setIsDeConnected={setIsDeConnected}
+          isConnected={isConnected}
+          setIsConnected={setIsConnected}
           adresse={adresse}
           setAdresse={setAdresse}
           numPanier={detailCmd.length}
@@ -135,9 +135,12 @@ const Categorie = () => {
               total={total}
               setTotal={setTotal}
               adresse={adresse}
-              id_client={id_client}
-              etat_commande={etat_commande}
-              setIdDetailCommandeSelected={setIdDetailCommandeSelected} date={""} />
+            
+             
+              setIdDetailCommandeSelected={setIdDetailCommandeSelected}
+              date={date}
+              detailCmd={detailCmd}
+            />
           </div>
         ) : (
           <div

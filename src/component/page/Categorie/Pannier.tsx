@@ -30,6 +30,8 @@ export default function Pannier({
   isConnected,
   isDeConnected,
 }: pannierProps) {
+  console.log("detailCmd", detailCmd);
+ 
   const décrémenteQuantité = (id_produit: number, prix: number) => {
     {/* findIndex: renvoie l'index du premier élément du tableau qui satisfait une condition*/ }
     const indexProduit = detailCmd.findIndex((el: any) => el.id === id_produit);
@@ -143,6 +145,8 @@ export default function Pannier({
               onClick={() =>
              
               {
+            
+                
                 //getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé
                
                 if(localStorage.getItem("User")===null){
@@ -157,6 +161,7 @@ export default function Pannier({
                  {/*appel la fonction qui faire lianson avec l'autre page*/ }
                   setIsValidePanier(true)
                 }
+                
               }
             }
             >

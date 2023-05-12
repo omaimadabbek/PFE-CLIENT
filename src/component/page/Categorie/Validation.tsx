@@ -3,18 +3,8 @@ import { FaClipboardList } from "react-icons/fa";
 import { MdOutlinePayment } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 
-
-import {
-  Button,
-  Card,
-  CardText,
-  CardTitle,
-  Col,
-  Input,
-
-} from "reactstrap";
+import { Button, Card, CardText, CardTitle, Col, Input } from "reactstrap";
 import Swal from "sweetalert2";
-
 
 type valideProps = {
   detailCommande: any;
@@ -23,31 +13,48 @@ type valideProps = {
   setDate: React.Dispatch<SetStateAction<string>>;
   idDetailCommandeSelected: number;
   date_cmd: string;
-  // totalcommande: string;
   total: number;
   setTotal: React.Dispatch<SetStateAction<number>>;
   setAdresse: React.Dispatch<SetStateAction<string>>;
   adresse: string;
-  etat_commande: string;
-  id_client: number;
+
   setIdDetailCommandeSelected: (value: SetStateAction<number>) => void;
   setDetailCmd: React.Dispatch<any>;
+  detailCmd: any;
 };
 export default function Valider({
-  
   setIsValidePanier,
   setAdresse,
   setDate,
   date_cmd,
-//totalcommande,
   total,
   setTotal,
   adresse,
-  id_client,
-  etat_commande,
-  setDetailCmd
-
+  setDetailCmd,
+  detailCmd,
 }: valideProps) {
+  const idClient = localStorage.getItem("id_client");
+ 
+  
+
+  async function detailCmds(idCmd: any, ligneCmd: any) {
+    fetch(`http://localhost:5000/detail_commandes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        date_detail_cmd: date_cmd,
+        id_commandes: idCmd,
+        designation: ligneCmd.nomProduit,
+        quantité: ligneCmd.quantity,
+        prix: ligneCmd.prix,
+        id_client: idClient,
+      }),
+    })
+      .then((response) => {})
+      .catch((error: any) => {
+        console.error("There was an error!", error.message);
+      });
+  }
   async function MaCommande() {
     fetch("http://localhost:5000/commandes", {
       method: "POST",
@@ -55,30 +62,33 @@ export default function Valider({
       body: JSON.stringify({
         date_cmd: date_cmd,
         totalcommande: total,
-        id_client: id_client,
-        etat_commande: etat_commande,
+        id_client: idClient,
+        etat_commande: "3",
         mdv: mdv,
         adresse: adresse,
       }),
     })
       .then((response) => {
-
         if (response.status === 200) {
-          Swal.fire(
-            'Commande!',
-            'success'
-          )
-        } else { }
+          Swal.fire("Commande!", "success");
+        } else {
+        }
 
-        response.json();
+        response.json().then((result) => {
+          const idCmd = result.id_commandes;
+          detailCmd.map((element: any) => {
+            detailCmds(idCmd, element);
+          });
+        });
       })
       .catch((error: any) => {
         console.error("There was an error!", error.message);
       });
   }
-  
+
   //getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé
   const mdv = localStorage.getItem("ModeVente");
+
   console.log("mdv", mdv);
 
   return (
@@ -96,10 +106,9 @@ export default function Valider({
 
       <Col style={{ marginLeft: "300px", width: "100%", marginTop: "-45px" }}>
         <Card body>
-          <CardTitle tag="h5" >
+          <CardTitle tag="h5">
             <FaClipboardList /> Votre Commande Chez Dabbek
           </CardTitle>
-
 
           <CardText tag="h5" style={{ marginTop: "8px" }}>
             <div className="d-flex justify-content-between">
@@ -108,7 +117,6 @@ export default function Valider({
               {mdv === "emporter" && <div>A Emporter</div>}
               {mdv === "sur place" && <div>Sur Place </div>}
             </div>
-
             <div>
               <Input
                 id="exampleDate"
@@ -123,18 +131,20 @@ export default function Valider({
             </div>{" "}
           </CardText>
 
-
-          <CardTitle tag="h5" >
+          <CardTitle tag="h5">
             <MdOutlinePayment /> Moyens de paiement
           </CardTitle>
-          <Input id="exampleSelect" name="select" type="select"
-            style={{ marginTop: "8px" }}>
+          <Input
+            id="exampleSelect"
+            name="select"
+            type="select"
+            style={{ marginTop: "8px" }}
+          >
             <option>Choisissez un moyen de paiement</option>
             <option>Espèces</option>
             <option>Carte Bancaire</option>
             <option>Transfert d'argent</option>
           </Input>
-
 
           {mdv === "livraison" && (
             <div>
@@ -154,23 +164,21 @@ export default function Valider({
             </div>
           )}
 
+          <CardTitle tag="h5" style={{ marginTop: "10px" }}>
+            Total:{total}
+          </CardTitle>
 
-          <CardTitle tag="h5" style={{ marginTop: "10px" }}>Total:{total}</CardTitle>
-
-
-
-
-          <Button className="btnValider"
+          <Button
+            className="btnValider"
             onClick={() => {
               setIsValidePanier(false);
-              setTotal(0)
-              setDetailCmd([])
-            MaCommande()
-              
+              setTotal(0);
+              setDetailCmd([]);
+              MaCommande();
             }}
-            style={{ marginTop: "15px" }}>
+            style={{ marginTop: "15px" }}
+          >
             Ma commande
-
           </Button>
         </Card>
       </Col>

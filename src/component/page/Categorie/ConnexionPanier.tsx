@@ -113,6 +113,7 @@ export default function Connexion({
           if (result.length === 1) {
             //Enregistre les données dans localStorage 
             localStorage.setItem("User", JSON.stringify(data[0]));
+            localStorage.setItem("id_client", JSON.stringify(data[0].id_client));
             
             
             ////getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé
