@@ -8,7 +8,7 @@ export default function Login() {
   const [mdp, setMdp] = useState("")
   const [email, setEmail] = useState("")
   async function AddAdmin() {
-    fetch('http://localhost:5000/Admin', {
+    fetch(`${process.env.REACT_APP_API_URL}/Admin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

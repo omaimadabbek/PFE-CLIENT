@@ -17,7 +17,7 @@ const Categorie = () => {
   const [idDetailCommandeSelected, setIdDetailCommandeSelected] = useState(0);
   const updateData = false;
   const [idCategorieSelected, setIdCategorieSelected] = useState(0);
-  const [idProduitSelected, setIdProduitSelected] = useState(0);
+  const [, setIdProduitSelected] = useState(0);
   const [title, setTitle] = useState("");
   const [modal, setModal] = useState(false);
   const [produit, setProduit] = useState("");
@@ -34,11 +34,10 @@ const Categorie = () => {
   const [total, setTotal] = useState(0);
   const [num_telephone, setNum] = useState(0);
 
-
   const [date_cmd] = useState("");
 
   function getCategorie() {
-    fetch("http://localhost:5000/categorie")
+    fetch(`${process.env.REACT_APP_API_URL}/categorie`)
       .then(async (response) => {
         const data = await response.json();
         setCategorieList(data);
@@ -57,7 +56,7 @@ const Categorie = () => {
   }
 
   function getProduit() {
-    fetch("http://localhost:5000/produits")
+    fetch(`${process.env.REACT_APP_API_URL}/produits`)
       .then(async (response) => {
         const data = await response.json();
 
@@ -75,7 +74,7 @@ const Categorie = () => {
   useEffect(() => {
     getCategorie();
   }, []);
-  useEffect(() => { }, [isValidePanier]);
+  useEffect(() => {}, [isValidePanier]);
 
   return (
     <div>
@@ -135,8 +134,6 @@ const Categorie = () => {
               total={total}
               setTotal={setTotal}
               adresse={adresse}
-            
-             
               setIdDetailCommandeSelected={setIdDetailCommandeSelected}
               date={date}
               detailCmd={detailCmd}

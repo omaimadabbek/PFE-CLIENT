@@ -34,11 +34,9 @@ export default function Valider({
   detailCmd,
 }: valideProps) {
   const idClient = localStorage.getItem("id_client");
- 
-  
 
   async function detailCmds(idCmd: any, ligneCmd: any) {
-    fetch(`http://localhost:5000/detail_commandes`, {
+    fetch(`${process.env.REACT_APP_API_URL}/detail_commandes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -56,7 +54,7 @@ export default function Valider({
       });
   }
   async function MaCommande() {
-    fetch("http://localhost:5000/commandes", {
+    fetch(`${process.env.REACT_APP_API_URL}/commandes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -76,6 +74,7 @@ export default function Valider({
 
         response.json().then((result) => {
           const idCmd = result.id_commandes;
+          // eslint-disable-next-line array-callback-return
           detailCmd.map((element: any) => {
             detailCmds(idCmd, element);
           });

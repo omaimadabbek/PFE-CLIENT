@@ -442,3 +442,25 @@ sub {
   background-color: rgb(15, 15, 15);
 
 }
+
+.text{
+  text-align: center;
+    margin-top: 130px;
+    font-family: bold;
+    text-decoration: underline;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+ .text{
+  text-align: center;
+    margin-top: 60px !important;
+    font-family: bold;
+    text-decoration: underline;
+}
+}
+
+
+
+
