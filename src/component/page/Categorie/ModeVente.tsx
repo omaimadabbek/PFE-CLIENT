@@ -11,9 +11,26 @@ const ModeVente = () => {
   };
   return (
     <div className="container">
-      <div className="d-flex justify-content-center text">
-        Choisissez Votre Mode De Vente :
+      <div>
+        <div className="p-2 bd-highlight">
+          <img
+            style={{
+              height: "135px",
+
+              width: "159px",
+              marginBottom: "-133px",
+              marginLeft: "565px",
+             
+            }}
+            src="dkk.png"
+            alt=""
+          />
+        </div>
+        <div className="d-flex justify-content-center text">
+          Choisissez Votre Mode De Vente :
+        </div>
       </div>
+
       <div className="row d-flex justify-content-center">
         <div className="col-sm  d-flex justify-content-center">
           <div
@@ -31,21 +48,11 @@ const ModeVente = () => {
                   width: "188px",
                   marginBottom: "5px",
                   marginLeft: "50px",
+                  cursor: "pointer",
                 }}
-                src="livraison.jpg"
+                src="livrAISON.png"
                 alt=""
               />
-            </div>
-            <div className="p-2 bd-highlight">
-              {" "}
-              <div
-                style={{
-                  textAlign: "center",
-                  fontFamily: "bold",
-                }}
-              >
-                Livraison
-              </div>
             </div>
           </div>
         </div>
@@ -63,20 +70,11 @@ const ModeVente = () => {
                   width: "188px",
                   marginBottom: "5px",
                   marginLeft: "50px",
+                  cursor: "pointer",
                 }}
-                src="emporter.png"
+                src="AEMPOrter.png"
                 alt=""
               />
-            </div>
-            <div className="p-2 bd-highlight">
-              <div
-                style={{
-                  textAlign: "center",
-                  fontFamily: "bold",
-                }}
-              >
-                A Emporter
-              </div>
             </div>
           </div>
         </div>
@@ -94,122 +92,15 @@ const ModeVente = () => {
                   width: "188px",
                   marginBottom: "5px",
                   marginLeft: "50px",
+                  cursor: "pointer",
                 }}
-                src="surPlace3.jpg"
+                src="PLACE.png"
                 alt=""
               />
-            </div>
-            <div className="p-2 bd-highlight">
-              <div
-                style={{
-                  textAlign: "center",
-                  fontFamily: "bold",
-                }}
-              >
-                Sur Place
-              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
-          gap: "30px",
-          width: "100%",
-        }}
-      >
-        <div
-          className="d-flex justify-content-between"
-          style={{
-            marginLeft: "-30px",
-            fontSize: "20px",
-            cursor: "pointer",
-          }}
-        >
-          <div
-            className="cardModeVente"
-            onClick={() => {
-              //chaque modeVente on appel la fonction avec type de ModeVente
-              navigateToPriseCommande("livraison");
-            }}
-          >
-            <img
-              style={{
-                height: "170px",
-
-                width: "188px",
-                marginBottom: "5px",
-                marginLeft: "50px",
-              }}
-              src="livraison.jpg"
-              alt=""
-            />
-            <div
-              style={{
-                textAlign: "center",
-                fontFamily: "bold",
-              }}
-            >
-              Livraison
-            </div>
-          </div>
-          <div
-            className="cardModeVente"
-            onClick={() => {
-              navigateToPriseCommande("emporter");
-            }}
-          >
-            <img
-              style={{
-                height: "170px",
-                width: "188px",
-                marginBottom: "5px",
-                marginLeft: "50px",
-              }}
-              src="emporter.png"
-              alt=""
-            />
-
-            <div
-              style={{
-                textAlign: "center",
-                fontFamily: "bold",
-              }}
-            >
-              A Emporter
-            </div>
-          </div>
-          <div
-            className="cardModeVente"
-            onClick={() => {
-              navigateToPriseCommande("sur place");
-            }}
-          >
-            <img
-              style={{
-                height: "170px",
-                width: "188px",
-                marginBottom: "5px",
-                marginLeft: "50px",
-              }}
-              src="surPlace3.jpg"
-              alt=""
-            />
-
-            <div
-              style={{
-                textAlign: "center",
-                fontFamily: "bold",
-              }}
-            >
-              Sur Place
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
