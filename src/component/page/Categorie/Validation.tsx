@@ -70,6 +70,7 @@ export default function Valider({
         if (response.status === 200) {
           Swal.fire("Commande!", "success");
         } else {
+          
         }
 
         response.json().then((result) => {
