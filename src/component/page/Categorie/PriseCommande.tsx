@@ -41,6 +41,8 @@ const Categorie = () => {
       .then(async (response) => {
         const data = await response.json();
         setCategorieList(data);
+        console.log("data",data);
+        
         let result: any = [];
         data.forEach((element: any, produit: any) => {
           result.push({

@@ -4,8 +4,8 @@ import "./Home.style.css";
 const ModeVente = () => {
   const navigate = useNavigate();
   const navigateToPriseCommande = (type: string) => {
-    // Fonction  navigate to PriseCommande
-    //setItem:Cette méthode est utilisée pour ajouter une clé et une valeur à localStorage
+    //***Fonction  navigate to PriseCommande*/
+    //***setItem:Cette méthode est utilisée pour ajouter une clé et une valeur à localStorage*/
     localStorage.setItem("ModeVente", type);
     navigate("/PriseCommande");
   };
@@ -36,7 +36,9 @@ const ModeVente = () => {
           <div
             className="d-flex flex-column bd-highlight mb-3"
             onClick={() => {
-              //chaque modeVente on appel la fonction avec type de ModeVente
+
+              //***chaque modeVente on appel la fonction avec type de ModeVente*/
+
               navigateToPriseCommande("livraison");
             }}
           >

@@ -63,7 +63,6 @@ export default function ListCategorie({
               style={{
                 height: "5vh",
                 textAlign: "center",
-                // border: "1px solid black",
                 padding: "1px",
                 fontWeight: "bold",
                 marginBottom: "10px",

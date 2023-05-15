@@ -96,26 +96,27 @@ export default function Connexion({
       });
     setModal(!modal);
   }
-  // fonction get
-  // ajouter condtion pour faire sweetalert2
-  function getClient() {
+  //***fonction get*/
+  //***ajouter condtion pour faire sweetalert2*/
+  function register() {
     fetch(`${process.env.REACT_APP_API_URL}/client/${email}/${mot_de_passe}`)
       .then((res) => res.json())
       .then((result) => {
         let data = result;
         if (result.length === 1) {
-          //Enregistre les données dans localStorage
+          //***Enregistre les données dans localStorage*/
+          //***setItem:Cette méthode est utilisée pour ajouter une clé et une valeur à localStorage*/
           localStorage.setItem("User", JSON.stringify(data[0]));
           localStorage.setItem("id_client", JSON.stringify(data[0].id_client));
 
-          ////getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé
+          //***getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé*/
           let newObject: any = window.localStorage.getItem("User");
-          //lire les données de localStorage
+          //***lire les données de localStorage*/
           console.log("JSON", JSON.parse(newObject));
-          //fermer popup
+          //***fermer popup*/
           setModal(false);
         } else {
-          //pass ou email incorrect donc affiche swalalerte d'une erreur
+          //***pass ou email incorrect donc affiche swalalerte d'une erreur*/
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -124,10 +125,10 @@ export default function Connexion({
         }
       });
   }
-  //fonction pour suuprimer les données de localStorage
+  //***fonction pour suuprimer les données de localStorage*/
   function deconnecter() {
     localStorage.removeItem("User");
-    //fermer popup
+    //***fermer popup*/
     setModal(false);
   }
 
@@ -136,7 +137,7 @@ export default function Connexion({
     setModal(!modal);
   };
 
-  //mettre les données de User dans l'initialisation de var nameUser
+  //***mettre les données de User dans l'initialisation de var nameUser*/
   let nameUser: any = localStorage.getItem("User");
   useEffect(() => {}, [isConnected, isDeConnected]);
   return (
@@ -163,7 +164,7 @@ export default function Connexion({
             cnx();
             console.log(nameUser);
           }}
-          //condition pour changer couleur de boutton
+          //***condition pour changer couleur de boutton*/
           style={{
             background:
               nameUser !== null && Object.keys(nameUser).length > 0
@@ -281,7 +282,7 @@ export default function Connexion({
                   <button
                     className="btnConnecter"
                     onClick={() => {
-                      getClient();
+                      register();
                       setIsConnected(!isConnected);
                     }}
                   >

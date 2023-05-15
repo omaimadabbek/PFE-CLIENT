@@ -1,4 +1,3 @@
-import { Button } from "reactstrap";
 import { ICategorie } from "./Categorie.type";
 import "./CategorieListe.style.css";
 

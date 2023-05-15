@@ -88,7 +88,6 @@ export default function ProduitList({
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3,1fr)",
-          // gap: "30px",
           width: "100%",
           textAlign: "center",
         }}

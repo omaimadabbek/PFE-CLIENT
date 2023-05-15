@@ -5,7 +5,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const navigateToModeVente = () => {
-    // Fonction  navigate to /ModeVente
+    //***Fonction  navigate to /ModeVente*/
     navigate("/ModeVente");
   };
   return (

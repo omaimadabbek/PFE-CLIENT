@@ -70,7 +70,7 @@ export default function Pannier({
           marginLeft: "5px",
         }}
       >
-        {/*condition quand le champ panier vide ou non*/}
+        {/*condition pour véerifier que le champ panier vide ou non*/}
         {detailCmd.length === 0 ? (
           <div className="vide">votre panier est vide </div>
         ) : (
@@ -143,7 +143,7 @@ export default function Pannier({
               id="confirm-command"
               className="buttonPanierQ"
               onClick={() => {
-                //getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé
+                //***getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé*/
 
                 if (localStorage.getItem("User") === null) {
                   Swal.fire({
