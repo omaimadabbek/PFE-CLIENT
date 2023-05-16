@@ -1,4 +1,5 @@
-import { SetStateAction} from "react";
+import { SetStateAction } from "react";
+import classnames from "classnames";
 import "./Home.style.css";
 import { HiOutlineInformationCircle } from "react-icons/hi";
 import { IProduit } from "./Categorie.type";
@@ -47,7 +48,6 @@ export default function ProduitList({
   };
   const handleClickPanier = (produit: any) => {
     let detail: any = {
-      //let: c'est un variable
       id: produit.id_produit,
       prix: produit.prix,
       quantity: 1,
@@ -55,13 +55,10 @@ export default function ProduitList({
     };
     setDetailCmd([...detailCmd, detail]);
     setTotal(Number(total) + Number(produit.prix));
-    //console.log("mdv", mdv);
   };
   const incrémenteQuantité = (id_produit: number, prix: number) => {
     const indexProduit = detailCmd.findIndex((el: any) => el.id === id_produit);
     detailCmd[indexProduit].quantity = detailCmd[indexProduit].quantity + 1;
-    console.log("indx", indexProduit);
-    console.log("detailCmd", detailCmd);
     setDetailCmd(detailCmd);
     setUpdateQuantity(!updateQuantity);
     setTotal(Number(total) + Number(prix));
@@ -74,7 +71,6 @@ export default function ProduitList({
     } else {
       detailCmd[indexProduit].quantity = detailCmd[indexProduit].quantity - 1;
     }
-    console.log("detailCmd", detailCmd);
     setDetailCmd(detailCmd);
     setUpdateQuantity(!updateQuantity);
     setTotal(Number(total) - Number(prix));
@@ -141,16 +137,32 @@ export default function ProduitList({
                 >
                   {produit.prix}$
                 </div>
+                <div
+                  style={{
+                    color: produit.repture_de_stock === "off" ? "green" : "red",
+                  }}
+                >
+                  {produit.repture_de_stock === "off" ? (
+                    <>En stock</>
+                  ) : (
+                    <>En repture de stock</>
+                  )}
+                </div>
 
                 {detailCmd?.filter((el: any) => el.id === produit.id_produit)
                   .length === 0 ? (
                   <button
-                    className="item-cart-btn "
+                    className="item-cart-btn"
+                    // className={classnames("item-cart-btn", {
+                    //   ".item-cart-btn-disabled":
+                    //     produit.repture_de_stock === "off",
+                    // })}
+                    disabled={produit.repture_de_stock === "off" ? false : true}
                     onClick={() => {
                       handleClickPanier(produit);
                     }}
                   >
-                    Add To Cart
+                    Ajouter au panier
                   </button>
                 ) : (
                   <div className="d-flex align-items-center flex-column">

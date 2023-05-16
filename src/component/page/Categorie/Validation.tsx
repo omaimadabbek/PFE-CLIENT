@@ -2,6 +2,8 @@ import { SetStateAction } from "react";
 import { FaClipboardList } from "react-icons/fa";
 import { MdOutlinePayment } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
+import moment from "moment";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 import { Button, Card, CardText, CardTitle, Col, Input } from "reactstrap";
 import Swal from "sweetalert2";
@@ -70,7 +72,6 @@ export default function Valider({
         if (response.status === 200) {
           Swal.fire("Commande!", "success");
         } else {
-          
         }
 
         response.json().then((result) => {
@@ -89,20 +90,19 @@ export default function Valider({
   //getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé
   const mdv = localStorage.getItem("ModeVente");
 
-  console.log("mdv", mdv);
-
   return (
     <div>
-      <Button
-        className="btnValider"
-        style={{ marginTop: "15px", marginLeft: "5px" }}
-        onClick={() => {
-          setIsValidePanier(false);
-        }}
-      >
-        {" "}
-        Back
-      </Button>
+      <div>
+        <Button
+          className="btnValider"
+          style={{ marginTop: "15px", marginLeft: "5px" }}
+          onClick={() => {
+            setIsValidePanier(false);
+          }}
+        >
+          <ArrowBackIosNewIcon /> Back
+        </Button>
+      </div>
 
       <Col style={{ marginLeft: "300px", width: "100%", marginTop: "-45px" }}>
         <Card body>
@@ -117,8 +117,15 @@ export default function Valider({
               {mdv === "emporter" && <div>A Emporter</div>}
               {mdv === "sur place" && <div>Sur Place </div>}
             </div>
-            <div>
-              <Input
+            <div
+              style={{
+                fontSize: "15px",
+                marginTop: "18px",
+                marginLeft: "230px",
+              }}
+            >
+              Aujourd'hui c'est : {moment().format("DD MMM YYYY")}
+              {/* <Input
                 id="exampleDate"
                 name="date"
                 placeholder="date placeholder"
@@ -127,24 +134,28 @@ export default function Valider({
                   setDate(e.target.value);
                 }}
                 style={{ marginTop: "8px" }}
-              />
+              /> */}
             </div>{" "}
           </CardText>
-
-          <CardTitle tag="h5">
-            <MdOutlinePayment /> Moyens de paiement
-          </CardTitle>
-          <Input
-            id="exampleSelect"
-            name="select"
-            type="select"
-            style={{ marginTop: "8px" }}
-          >
-            <option>Choisissez un moyen de paiement</option>
-            <option>Espèces</option>
-            <option>Carte Bancaire</option>
-            <option>Transfert d'argent</option>
-          </Input>
+          {(mdv === "livraison" || mdv === "emporter") && (
+            <div>
+              {" "}
+              <CardTitle tag="h5">
+                <MdOutlinePayment /> Moyens de paiement
+              </CardTitle>
+              <Input
+                id="exampleSelect"
+                name="select"
+                type="select"
+                style={{ marginTop: "8px" }}
+              >
+                <option>Choisissez un moyen de paiement</option>
+                <option>Espèces</option>
+                <option>Carte Bancaire</option>
+                <option>Transfert d'argent</option>
+              </Input>
+            </div>
+          )}
 
           {mdv === "livraison" && (
             <div>
@@ -171,10 +182,18 @@ export default function Valider({
           <Button
             className="btnValider"
             onClick={() => {
-              setIsValidePanier(false);
-              setTotal(0);
-              setDetailCmd([]);
-              MaCommande();
+              if (adresse === "") {
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "!!",
+                });
+              } else {
+                setIsValidePanier(false);
+                setTotal(0);
+                setDetailCmd([]);
+                MaCommande();
+              }
             }}
             style={{ marginTop: "15px" }}
           >

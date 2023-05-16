@@ -10,21 +10,16 @@ const Home = () => {
   };
   return (
     <div className="container">
-      <img src="Home.jpg" alt="Snow" style={{ width: "100%" }} />
-      <img
-        src="cmd.png"
-        alt=""
-        style={{
-          width: "300px",
-          height: "70px",
-          cursor: "pointer",
-          marginTop: "-92px",
-          display: "flex",
-          marginLeft: "550px",
-        }}
-        //appel fonction dans fichier Home.tsx pour faire la liaison entre les pages
-        onClick={navigateToModeVente}
-      />
+      <img src="Home.jpg" className="Image-item" alt="Responsive image" />
+      <div className="carousel-caption">
+        <img
+          src="cmd.png"
+          alt=""
+          className=""
+          style={{ width: "34%", height: "10%" }}
+          onClick={navigateToModeVente}
+        />
+      </div>
     </div>
   );
 };

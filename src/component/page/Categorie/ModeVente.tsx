@@ -11,23 +11,20 @@ const ModeVente = () => {
   };
   return (
     <div className="container">
-      <div>
-        <div className="p-2 bd-highlight">
-          <img
-            style={{
-              height: "135px",
+      <div className="d-flex justify-content-center my-3 ">
+        <img
+          style={{
+            height: "135px",
+            width: "159px",
+          }}
+          src="dkk.png"
+          alt="Responsive image"
+        />
+      </div>
 
-              width: "159px",
-              marginBottom: "-133px",
-              marginLeft: "565px",
-             
-            }}
-            src="dkk.png"
-            alt=""
-          />
-        </div>
-        <div className="d-flex justify-content-center text">
-          Choisissez Votre Mode De Vente :
+      <div>
+        <div className="d-flex justify-content-center my-3 ">
+          <h5> Choisissez Votre Mode De Vente :</h5>
         </div>
       </div>
 
@@ -36,7 +33,6 @@ const ModeVente = () => {
           <div
             className="d-flex flex-column bd-highlight mb-3"
             onClick={() => {
-
               //***chaque modeVente on appel la fonction avec type de ModeVente*/
 
               navigateToPriseCommande("livraison");
@@ -45,12 +41,8 @@ const ModeVente = () => {
             <div className="p-2 bd-highlight">
               <img
                 style={{
-                  height: "170px",
-
-                  width: "188px",
-                  marginBottom: "5px",
-                  marginLeft: "50px",
-                  cursor: "pointer",
+                  height: "165%",
+                  width: "100%",
                 }}
                 src="livrAISON.png"
                 alt=""
@@ -68,10 +60,8 @@ const ModeVente = () => {
             >
               <img
                 style={{
-                  height: "170px",
-                  width: "188px",
-                  marginBottom: "5px",
-                  marginLeft: "50px",
+                  height: "165%",
+                  width: "100%",
                   cursor: "pointer",
                 }}
                 src="AEMPOrter.png"
@@ -90,10 +80,8 @@ const ModeVente = () => {
             <div className="p-2 bd-highlight">
               <img
                 style={{
-                  height: "170px",
-                  width: "188px",
-                  marginBottom: "5px",
-                  marginLeft: "50px",
+                  height: "165%",
+                  width: "100%",
                   cursor: "pointer",
                 }}
                 src="PLACE.png"

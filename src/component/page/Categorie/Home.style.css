@@ -7,6 +7,23 @@
   margin-left: 550px;
 }
 
+.Image-item {
+  height: 882px;
+  width: 100%;
+  object-fit: cover;
+}
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -39,7 +56,6 @@
   background-color: black;
 }
 
-
 .article-header {
   background-color: rgb(99, 4, 51);
   color: white;
@@ -52,10 +68,6 @@
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 15px;
-
-
-
-
 }
 
 body {
@@ -73,8 +85,6 @@ body {
   position: sticky;
   top: 0;
   left: 0;
-
-
 }
 
 footer {
@@ -95,18 +105,15 @@ footer {
   border-radius: 40px;
 }
 
-footer.links>div {
+footer.links > div {
   display: grid;
   gap: 10px;
   margin-bottom: 30px;
 }
 
 .image {
-
   width: 100px;
   height: 100px;
-
-
 }
 
 .cardProduit {
@@ -117,7 +124,6 @@ footer.links>div {
   box-shadow: 0 5px 5px rgb(0 0 0/8%);
   height: 380px;
   margin-top: 30px;
-
 }
 
 .cardModeVente {
@@ -129,7 +135,6 @@ footer.links>div {
   height: 210px;
   margin-top: 150px;
   margin-left: 100px;
-
 }
 
 .cardPanier {
@@ -145,7 +150,7 @@ footer.links>div {
 
 .buttonCnx {
   border: 0;
-  
+
   color: #f8f8f8;
   font-family: inherit;
   padding: 8px 16px;
@@ -166,24 +171,21 @@ footer.links>div {
   text-decoration: none;
   margin-left: 90px;
   margin-right: -84px;
-
 }
 
 .titre {
   box-shadow: 0 5px 5px rgb(0 0 0/8%);
   font-weight: bold;
   text-align: center;
-
 }
 
 .image {
-
   box-shadow: 0 5px 5px rgb(0 0 0/8%);
 }
 
 .item-description {
-  margin: .5rem 0;
-  font-size: .9rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
   font-weight: 200;
 }
 
@@ -209,7 +211,7 @@ footer.links>div {
   width: 80%;
   border: 1px;
   font-weight: bold;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   background-color: rgb(200, 142, 254);
   color: #fff;
   border-radius: 2rem;
@@ -217,7 +219,7 @@ footer.links>div {
   font-weight: 200;
   position: relative;
   cursor: pointer;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
   margin-bottom: 10px;
 }
 
@@ -241,7 +243,6 @@ footer.links>div {
 
 .btn:hover {
   background-color: rgb(49, 58, 50);
-
 }
 
 /* btn:hover heki bch ki nenzel 3la  yetbdl automatique couleur te3ha */
@@ -253,12 +254,11 @@ footer.links>div {
   background-color: rgb(227, 240, 240);
 }
 
-
 sub {
   font-size: 14px;
   position: relative;
   color: black;
-  right: 10px
+  right: 10px;
 }
 
 .add-to-card {
@@ -273,20 +273,13 @@ sub {
   font-size: 16px;
   color: #fff;
   font-weight: 600;
-
 }
 
 .icon {
   cursor: pointer;
   font-size: 25px;
   margin-top: -5px;
-
 }
-
-
-
-
-
 
 .bodyLogin__CLZ {
   margin: 0;
@@ -378,15 +371,15 @@ sub {
   transform: scale(0.6);
 }
 
-#chk:checked~.login {
+#chk:checked ~ .login {
   transform: translateY(-580px);
 }
 
-#chk:checked~.login label {
+#chk:checked ~ .login label {
   transform: scale(0.8);
 }
 
-#chk:checked~.signup label {
+#chk:checked ~ .signup label {
   transform: scale(0.6);
 }
 
@@ -407,7 +400,6 @@ sub {
   margin-top: -5px;
   margin-bottom: -5px;
   margin-right: 172px;
-
 }
 
 .btnInscrire {
@@ -422,7 +414,6 @@ sub {
   margin-top: -5px;
   margin-bottom: -5px;
   margin-right: 190px;
-
 }
 
 .btnValider {
@@ -440,27 +431,21 @@ sub {
 
 .btnValider:hover {
   background-color: rgb(15, 15, 15);
-
 }
 
-.text{
+.text {
   text-align: center;
-    margin-top: 130px;
-    font-family: bold;
-    text-decoration: underline;
+  margin-top: 130px;
+  font-family: bold;
+  text-decoration: underline;
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
- .text{
-  text-align: center;
+  .text {
+    text-align: center;
     margin-top: 60px !important;
     font-family: bold;
     text-decoration: underline;
+  }
 }
-}
-
-
-
-

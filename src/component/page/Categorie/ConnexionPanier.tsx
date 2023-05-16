@@ -2,6 +2,7 @@
 import { SetStateAction, useEffect, useState } from "react";
 import "./Home.style.css";
 import "./login.style.css";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CloseIcon from "@mui/icons-material/Close";
 
 import { FaShoppingCart } from "react-icons/fa";
@@ -158,6 +159,7 @@ export default function Connexion({
           justifyContent: "center",
         }}
       >
+  
         <button
           className="buttonCnx"
           onClick={() => {
@@ -169,7 +171,7 @@ export default function Connexion({
             background:
               nameUser !== null && Object.keys(nameUser).length > 0
                 ? "green"
-                : "black",
+                : "grey",
           }}
         >
           {/*condition pour pour vérifier est-ce-que dans keys il y'a des données ou non */}
@@ -436,19 +438,24 @@ export default function Connexion({
           )}
         </Modal>
 
-        <div style={{ fontSize: "25px" }}>
-          <FaShoppingCart />
-          <span
-            className="cart span"
-            style={{
-              backgroundColor: "red",
-              color: "white",
-              border: "0",
-              borderRadius: "50px",
-              marginLeft: "5px",
-            }}
-          >
-            {numPanier}
+        <div style={{ marginTop: "4px" }}>
+          <span className="left-side">
+            <span className="svgbg">
+              <svg
+                width="26.002"
+                height="24.018"
+                viewBox="0 0 26.002 24.018"
+                color="black"
+              >
+                <path
+                  id="cart"
+                  d="M-13732.085,9370.008a1.5,1.5,0,0,1,1.5-1.5,1.5,1.5,0,0,1,1.5,1.5,1.5,1.5,0,0,1-1.5,1.5A1.5,1.5,0,0,1-13732.085,9370.008Zm-14.036,0a1.5,1.5,0,0,1,1.5-1.5,1.5,1.5,0,0,1,1.5,1.5,1.5,1.5,0,0,1-1.5,1.5A1.5,1.5,0,0,1-13746.121,9370.008Zm3.316-2.509a2.494,2.494,0,0,1-2.053-1.011,4.836,4.836,0,0,1-.908-2.233l-2.5-13.229c0-.007-.11-.569-.124-.646a.018.018,0,0,1-.007-.017c-.087-.422-.324-.9-.618-.991a8.459,8.459,0,0,0-1.625-.117.894.894,0,0,1-.978-.88.913.913,0,0,1,1.022-.884c1.659.014,2.567-.007,3.051.583a6.479,6.479,0,0,1,.763,1.163.625.625,0,0,0,.466.294l20.365,1.971a.363.363,0,0,1,.324.262.325.325,0,0,1,0,.162l-1,7.237a.365.365,0,0,1-.3.328l-17.362,2.937a.038.038,0,0,0-.028.038l.27,1.48a2.784,2.784,0,0,0,.722,1.626.72.72,0,0,0,.518.176h14.83a.873.873,0,0,1,.876.915.889.889,0,0,1-.9.835Z"
+                  transform="translate(13751.619 -9347.492)"
+                  fill="black"
+                ></path>
+              </svg>
+            </span>
+            <span className="cart-products-count">{numPanier}</span>
           </span>
         </div>
       </div>
