@@ -5,7 +5,8 @@ import ModalCategorie from "./ModalCategorie";
 import Connexion from "./ConnexionPanier";
 import Pannier from "./Pannier";
 import ListCategorie from "./ListCategorie";
-
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import CloseIcon from "@mui/icons-material/Close";
 import Valider from "./Validation";
 import ProduitList from "./ProduitList";
 
@@ -33,6 +34,7 @@ const Categorie = () => {
   const [adresse, setAdresse] = useState("");
   const [total, setTotal] = useState(0);
   const [num_telephone, setNum] = useState(0);
+   const [modal2, setModal2] = useState(false);
 
   const [date_cmd] = useState("");
 
@@ -41,8 +43,8 @@ const Categorie = () => {
       .then(async (response) => {
         const data = await response.json();
         setCategorieList(data);
-        console.log("data",data);
-        
+        console.log("data", data);
+
         let result: any = [];
         data.forEach((element: any, produit: any) => {
           result.push({
@@ -115,6 +117,8 @@ const Categorie = () => {
           setMdp={setMdp}
           num_telephone={num_telephone}
           setNum={setNum}
+          modal2={modal2}
+          setModal2={setModal2}
         />
         {isValidePanier ? (
           <div
@@ -173,17 +177,47 @@ const Categorie = () => {
               total={total}
               setTotal={setTotal}
             />
-            <Pannier
-              total={total}
-              setTotal={setTotal}
-              detailCmd={detailCmd}
-              setDetailCmd={setDetailCmd}
-              setIsValidePanier={setIsValidePanier}
-              setUpdateQuantity={setUpdateQuantity}
-              updateQuantity={updateQuantity}
-              isConnected={isConnected}
-              isDeConnected={isDeConnected}
-            />
+            <div className="d-none d-sm-block">
+              <Pannier
+                total={total}
+                setTotal={setTotal}
+                detailCmd={detailCmd}
+                setDetailCmd={setDetailCmd}
+                setIsValidePanier={setIsValidePanier}
+                setUpdateQuantity={setUpdateQuantity}
+                updateQuantity={updateQuantity}
+                isConnected={isConnected}
+                isDeConnected={isDeConnected}
+              />
+            </div>
+
+            <Modal isOpen={modal2}>
+              <ModalHeader>
+                Panier{" "}
+                <span
+                  style={{ marginLeft: "335px", cursor: "pointer" }}
+                  onClick={() => {
+                    setModal2(!modal2);
+                  }}
+                >
+                  <CloseIcon />
+                </span>
+              </ModalHeader>
+
+              <ModalBody>
+                <Pannier
+                  total={total}
+                  setTotal={setTotal}
+                  detailCmd={detailCmd}
+                  setDetailCmd={setDetailCmd}
+                  setIsValidePanier={setIsValidePanier}
+                  setUpdateQuantity={setUpdateQuantity}
+                  updateQuantity={updateQuantity}
+                  isConnected={isConnected}
+                  isDeConnected={isDeConnected}
+                />
+              </ModalBody>
+            </Modal>
           </div>
         )}
       </div>

@@ -3,6 +3,7 @@ import "./Home.style.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay, Virtual } from "swiper";
 import "swiper/swiper-bundle.css";
+import "./style.css";
 
 SwiperCore.use([Navigation, Pagination, Autoplay, Virtual]);
 
@@ -23,17 +24,8 @@ export default function ListCategorie({
     setTitle(categorie.nom_categorie);
   };
 
-
   return (
-    <Swiper
-      direction="vertical"
-      slidesPerView={3}
-
-      style={{
-        marginLeft: "8px",
-        marginRight: "15px",
-      }}
-    >
+    <Swiper direction="vertical" slidesPerView={3} className="ListCategorie">
       {categorieList?.map((categorie: any, index: number) => (
         <SwiperSlide key={categorie.id_categories}>
           <div
@@ -44,7 +36,6 @@ export default function ListCategorie({
                 idCategorieSelected === categorie.id_categorie
                   ? "10px 5px 5px red"
                   : "0 10px 10px rgb(0 0 0/10%)",
-
             }}
             onClick={(e) => {
               handleClickCategorie(categorie);

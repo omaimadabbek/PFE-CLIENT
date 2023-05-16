@@ -1,0 +1,9 @@
+/* Mobile */
+@media (max-width: 768px) {
+  .ListCategorie {
+    width: 60% !important;
+  }
+}
+.ListCategorie {
+  width: 20%;
+}

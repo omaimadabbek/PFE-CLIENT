@@ -2,10 +2,9 @@
 import { SetStateAction, useEffect, useState } from "react";
 import "./Home.style.css";
 import "./login.style.css";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 import CloseIcon from "@mui/icons-material/Close";
 
-import { FaShoppingCart } from "react-icons/fa";
 import {
   Col,
   FormGroup,
@@ -38,6 +37,8 @@ type connexionProps = {
   setIsDeConnected: React.Dispatch<React.SetStateAction<boolean>>;
   setIsValidePanier: React.Dispatch<SetStateAction<boolean>>;
   setDetailCmd: React.Dispatch<any>;
+  modal2: boolean;
+  setModal2: Function;
 };
 export default function Connexion({
   numPanier,
@@ -60,6 +61,8 @@ export default function Connexion({
   setIsConnected,
   isDeConnected,
   setIsDeConnected,
+  modal2,
+  setModal2,
 }: connexionProps) {
   const [inscrire, setInscrire] = useState(false);
 
@@ -159,12 +162,10 @@ export default function Connexion({
           justifyContent: "center",
         }}
       >
-  
         <button
           className="buttonCnx"
           onClick={() => {
             cnx();
-            console.log(nameUser);
           }}
           //***condition pour changer couleur de boutton*/
           style={{
@@ -437,8 +438,13 @@ export default function Connexion({
             </>
           )}
         </Modal>
-
-        <div style={{ marginTop: "4px" }}>
+        {/* marginTop: "4px" */}
+        <div
+          style={{ fontSize: "25px" }}
+          onClick={() => {
+            setModal2(!modal2);
+          }}
+        >
           <span className="left-side">
             <span className="svgbg">
               <svg

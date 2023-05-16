@@ -32,7 +32,6 @@ export default function Pannier({
   console.log("detailCmd", detailCmd);
 
   const décrémenteQuantité = (id_produit: number, prix: number) => {
-    
     //* findIndex: renvoie l'index du premier élément du tableau qui satisfait une condition*/
 
     const indexProduit = detailCmd.findIndex((el: any) => el.id === id_produit);
@@ -41,7 +40,7 @@ export default function Pannier({
     } else {
       detailCmd[indexProduit].quantity = detailCmd[indexProduit].quantity - 1;
     }
-    console.log("detailCmd", detailCmd);
+
     setDetailCmd(detailCmd);
     setUpdateQuantity(!updateQuantity);
     setTotal(Number(total) - Number(prix));
@@ -63,7 +62,7 @@ export default function Pannier({
 
   useEffect(() => {}, [updateQuantity]);
   return (
-    <div className="cardPanier" style={{ width: "30rem" }}>
+    <div className="cardPanier  " style={{ width: "15rem" }}>
       <div
         style={{
           width: "-webkit-fill-available",

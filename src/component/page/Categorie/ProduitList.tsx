@@ -39,7 +39,6 @@ export default function ProduitList({
   setDetailCmd,
   setTotal,
   total,
-  numPanier,
 }: produitProps) {
   const handleClickProduit = (produit: any) => {
     setIdProduitSelected(produit.id_produit);
@@ -80,14 +79,7 @@ export default function ProduitList({
     <div style={{ overflow: "auto", width: "-webkit-fill-available" }}>
       {title !== "" && <div className="titre">{title}</div>}
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
-          width: "100%",
-          textAlign: "center",
-        }}
-      >
+      <div className="TemplateColumns">
         {produitList
           ?.filter(
             (element: any) =>
@@ -153,10 +145,6 @@ export default function ProduitList({
                   .length === 0 ? (
                   <button
                     className="item-cart-btn"
-                    // className={classnames("item-cart-btn", {
-                    //   ".item-cart-btn-disabled":
-                    //     produit.repture_de_stock === "off",
-                    // })}
                     disabled={produit.repture_de_stock === "off" ? false : true}
                     onClick={() => {
                       handleClickPanier(produit);
