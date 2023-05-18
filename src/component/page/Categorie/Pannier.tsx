@@ -73,92 +73,98 @@ export default function Pannier({
         {detailCmd.length === 0 ? (
           <div className="vide">votre panier est vide </div>
         ) : (
-          <Table>
-            <thead>
-              <tr>
-                <th>Nom</th>
-                <th>Quantité</th>
-                <th>prix</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* */}
-              {detailCmd?.map((produit: any) => {
-                return (
-                  <tr>
-                    <th scope="row">
-                      <div style={{ fontFamily: "cursive" }}>
-                        {" "}
-                        {produit.nomProduit}
-                      </div>
-                    </th>
+          <div>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Quantité</th>
+                  <th>prix</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* */}
+                {detailCmd?.map((produit: any) => {
+                  return (
+                    <tr>
+                      <th scope="row">
+                        <div style={{ fontFamily: "cursive" }}>
+                          {" "}
+                          {produit.nomProduit}
+                        </div>
+                      </th>
 
-                    <td className="align-middle">
-                      <div>
-                        <div className="d-flex align-items-center flex-column">
-                          <div className="d-flex align-items-center justify-content-center">
-                            <div
-                              onClick={() =>
-                                décrémenteQuantité(produit.id, produit.prix)
-                              }
-                              className="icon"
-                            >
-                              {" "}
-                              <IoIosRemoveCircleOutline />
-                            </div>
+                      <td className="align-middle">
+                        <div>
+                          <div className="d-flex align-items-center flex-column">
+                            <div className="d-flex align-items-center justify-content-center">
+                              <div
+                                onClick={() =>
+                                  décrémenteQuantité(produit.id, produit.prix)
+                                }
+                                className="icon"
+                              >
+                                {" "}
+                                <IoIosRemoveCircleOutline />
+                              </div>
 
-                            {produit.quantity}
+                              {produit.quantity}
 
-                            <div
-                              style={{}}
-                              onClick={() => {
-                                incrémenteQuantité(produit.id, produit.prix);
-                              }}
-                              className="icon"
-                            >
-                              <IoIosAddCircleOutline />
+                              <div
+                                style={{}}
+                                onClick={() => {
+                                  incrémenteQuantité(produit.id, produit.prix);
+                                }}
+                                className="icon"
+                              >
+                                <IoIosAddCircleOutline />
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </td>
-                    <td className="align-middle">
-                      <div>
-                        <p
-                          className="mb-0"
-                          style={{ fontWeight: "500", marginTop: "-9px" }}
-                        >
-                          {produit.prix}
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-            <p>Total : {total} $</p>
+                      </td>
+                      <td className="align-middle">
+                        <div>
+                          <p
+                            className="mb-0"
+                            style={{ fontWeight: "500", marginTop: "-9px" }}
+                          >
+                            {produit.prix}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+            <div className="p-2 d-flex justify-content-end">
+              {" "}
+              <p style={{ fontWeight: "bold" }}>Total : {total}€</p>
+            </div>
+            <div className="d-flex justify-content-center">
+              <button
+                id="confirm-command"
+                className="buttonPanierQ "
+                onClick={() => {
+                  //***getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé*/
 
-            <button
-              id="confirm-command"
-              className="buttonPanierQ"
-              onClick={() => {
-                //***getItem:Cette méthode est utilisée pour obtenir un élément de localStorage à l'aide de la clé*/
-
-                if (localStorage.getItem("User") === null) {
-                  Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Vérifier votre compte!!",
-                    footer: '<a href="">Quitter</a>',
-                  });
-                } else {
-                  setIsValidePanier(true);
-                }
-              }}
-            >
-              Valider
-            </button>
-          </Table>
+                  if (localStorage.getItem("User") === null) {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Vérifier votre compte!!",
+                      footer: '<a href="">Quitter</a>',
+                    });
+                  } else {
+                    setIsValidePanier(true);
+                  }
+                }}
+              >
+                Valider
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>

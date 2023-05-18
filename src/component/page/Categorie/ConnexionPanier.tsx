@@ -2,10 +2,11 @@
 import { SetStateAction, useEffect, useState } from "react";
 import "./Home.style.css";
 import "./login.style.css";
-
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CloseIcon from "@mui/icons-material/Close";
 
 import {
+  Button,
   Col,
   FormGroup,
   Label,
@@ -162,6 +163,7 @@ export default function Connexion({
           justifyContent: "center",
         }}
       >
+      
         <button
           className="buttonCnx"
           onClick={() => {
@@ -172,7 +174,7 @@ export default function Connexion({
             background:
               nameUser !== null && Object.keys(nameUser).length > 0
                 ? "green"
-                : "grey",
+                : "black",
           }}
         >
           {/*condition pour pour vérifier est-ce-que dans keys il y'a des données ou non */}
@@ -180,6 +182,7 @@ export default function Connexion({
             ? "Compte connecté"
             : "Connexion"}
         </button>
+
         <Modal isOpen={modal} cnx={cnx}>
           {!inscrire ? (
             nameUser !== null && Object.keys(nameUser).length > 0 ? (

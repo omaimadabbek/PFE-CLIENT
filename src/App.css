@@ -70,6 +70,18 @@ body {
     width: 100% !important;
     text-align: center !important;
   }
+
+  .cardPanier {
+    margin-right: 10px;
+    margin-top: 80px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgb(0 0 0/8%);
+    max-height: 500px;
+    margin-top: 30px;
+    overflow: auto;
+    width: 100% !important;
+}
 }
 .TemplateColumns {
   display: grid;

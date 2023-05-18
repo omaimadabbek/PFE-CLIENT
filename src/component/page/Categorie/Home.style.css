@@ -169,8 +169,7 @@ footer.links > div {
   font-size: 14px;
   border-radius: 70px;
   text-decoration: none;
-  margin-left: 90px;
-  margin-right: -84px;
+  
 }
 
 .titre {
@@ -191,7 +190,7 @@ footer.links > div {
 
 .item-price {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 

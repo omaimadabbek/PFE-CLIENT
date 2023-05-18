@@ -123,15 +123,16 @@ export default function ProduitList({
                 <div
                   className="item-price"
                   style={{
-                    fontVariant: "small-caps",
                     marginBottom: "20px",
                   }}
                 >
-                  {produit.prix}$
+                  {produit.prix}€
                 </div>
                 <div
                   style={{
                     color: produit.repture_de_stock === "off" ? "green" : "red",
+                    fontWeight: "bold",
+                    marginTop: "-18px",
                   }}
                 >
                   {produit.repture_de_stock === "off" ? (
@@ -143,15 +144,25 @@ export default function ProduitList({
 
                 {detailCmd?.filter((el: any) => el.id === produit.id_produit)
                   .length === 0 ? (
-                  <button
-                    className="item-cart-btn"
-                    disabled={produit.repture_de_stock === "off" ? false : true}
-                    onClick={() => {
-                      handleClickPanier(produit);
-                    }}
-                  >
-                    Ajouter au panier
-                  </button>
+                  <div style={{ marginTop: "18px" }}>
+                    <button
+                      className="item-cart-btn"
+                      disabled={
+                        produit.repture_de_stock === "off" ? false : true
+                      }
+                      style={{
+                        background:
+                          produit.repture_de_stock === "off"
+                            ?" rgb(200, 142, 254)"
+                            : "grey",
+                      }}
+                      onClick={() => {
+                        handleClickPanier(produit);
+                      }}
+                    >
+                      Ajouter au panier
+                    </button>
+                  </div>
                 ) : (
                   <div className="d-flex align-items-center flex-column">
                     <div className="d-flex align-items-center justify-content-center">
